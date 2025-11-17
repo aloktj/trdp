@@ -22,6 +22,8 @@ lives at the root of the repository.
 
 ## Building
 
+### Using Make
+
 ```sh
 make        # builds libtrdp_core.a and the XML/PD test tools under build/
 ```
@@ -44,6 +46,34 @@ Additional useful targets:
 - `make distclean` – remove the entire `build/` directory, including the
   extracted TRDP tree
 
+### Using CMake
+
+The project also ships a CMake build that mirrors the Makefile workflow:
+
+```sh
+cmake -S . -B build-cmake
+cmake --build build-cmake
+```
+
+The first command configures the project and automatically prepares the TRDP
+sources inside the chosen build directory (e.g. `build-cmake/trdp`). The second
+command builds the static library plus the `trdp-xmlpd-test`, `trdp-xmlprint`,
+and `trdp-pd-test` utilities.
+
+For a quick smoke test you can use the helper script, which defaults to the
+`cmake-build/` directory but also accepts a custom build folder as its first
+argument:
+
+```sh
+./tools/test_cmake_build.sh [path/to/build-dir]
+```
+
+To re-run the extraction/patching logic you can invoke the dedicated target:
+
+```sh
+cmake --build build-cmake --target prepare_sources
+```
+
 The helper script [`tools/prepare_sources.sh`](tools/prepare_sources.sh) is
 responsible for keeping the unpacked tree in sync with the shipped tarball and
-patch series.
+patch series in both build systems.
