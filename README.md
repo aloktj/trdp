@@ -2,7 +2,10 @@
 
 This repository packages the [TCNOpen TRDP stack](https://www.cooperationtool.eu/tcnopen/) and provides a
 self-contained build that produces the static core library as well as the XML
-and PD helper tools shipped upstream.
+and PD helper tools shipped upstream. The codebase is intentionally free from
+the legacy xpact metadata that shipped with the original vendor drop; only the
+standard `make` based workflow described below is required to build the
+artifacts.
 
 ## Prerequisites
 
