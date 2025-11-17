@@ -6,8 +6,8 @@ PROJECT_ROOT=$(cd "${SCRIPT_DIR}/.." && pwd)
 ARCHIVE_NAME="trdp-2.0.3.0.tar.gz"
 ARCHIVE_PATH="${PROJECT_ROOT}/${ARCHIVE_NAME}"
 VERSION="2.0.3.0"
-BUILD_DIR="${PROJECT_ROOT}/build"
-SRC_DIR="${BUILD_DIR}/trdp"
+BUILD_DIR="${TRDP_BUILD_DIR:-${PROJECT_ROOT}/build}"
+SRC_DIR="${TRDP_SRC_DIR:-${BUILD_DIR}/trdp}"
 PATCH_STAMP="${SRC_DIR}/.patches-applied"
 
 if [[ ! -f "${ARCHIVE_PATH}" ]]; then
