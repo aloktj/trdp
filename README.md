@@ -60,6 +60,14 @@ sources inside the chosen build directory (e.g. `build-cmake/trdp`). The second
 command builds the static library plus the `trdp-xmlpd-test`, `trdp-xmlprint`,
 and `trdp-pd-test` utilities.
 
+For a quick smoke test you can use the helper script, which defaults to the
+`cmake-build/` directory but also accepts a custom build folder as its first
+argument:
+
+```sh
+./tools/test_cmake_build.sh [path/to/build-dir]
+```
+
 To re-run the extraction/patching logic you can invoke the dedicated target:
 
 ```sh
